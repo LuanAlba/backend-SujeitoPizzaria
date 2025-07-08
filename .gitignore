@@ -47,3 +47,5 @@ out/
 
 # Prisma
 .prisma/
+
+/src/generated/prisma
