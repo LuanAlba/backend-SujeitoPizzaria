@@ -1,0 +1,49 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript
+dist/
+build/
+*.tsbuildinfo
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+log.txt
+
+# Test coverage
+coverage/
+
+# VS Code
+.vscode/
+
+# Sistema operacional
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Optional: excluir arquivos de lock de outros gerenciadores
+package-lock.json
+pnpm-lock.yaml
+
+# PM2 process manager logs
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Next.js/Remix (caso esteja usando)
+.next/
+out/
+.remix/
+
+# Prisma
+.prisma/
