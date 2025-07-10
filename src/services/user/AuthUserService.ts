@@ -1,5 +1,6 @@
 import prisma from "../../prisma";
 import { compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
 
 interface AuthRequest {
     email: string;
@@ -26,9 +27,26 @@ class AuthUserService {
             throw new Error("Usuário/Password incorretos")
         }
 
-        //proximo passo é gerar um token jwt 
+        //se tudo ok, gerar o JWT
+        const token = sign(
+            {
+                name: user.name,
+                email: user.email
+            },
+            //utilizando do process do .env
+            process.env.JWT_SECRET,
+            {
+                subject: user.id,
+                expiresIn: '30d'
+            }
+        )
 
-        return { ok: true }
+        return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            token: token
+        }
     }
 }
 
