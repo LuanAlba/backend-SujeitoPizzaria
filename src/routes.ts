@@ -13,11 +13,12 @@ import { RemoveOrderController } from "./controllers/order/RemoveOrderController
 import { AdditemController } from "./controllers/order/AddItemController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { SendOrderController } from "./controllers/order/SendOrderController";
+import { ListOrdersController } from "./controllers/order/ListOrdersController";
+import { DetailOrderController } from "./controllers/order/DetailOrderController";
 
 //Import dos middlewares
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import uploadConfig from './config/multer'
-import { ListOrdersController } from "./controllers/order/ListOrdersController";
 
 const router = Router();
 
@@ -43,6 +44,7 @@ router.delete('/order', isAuthenticated, new RemoveOrderController().handle)
 router.delete('/order/item', isAuthenticated, new RemoveItemController().handle)
 router.put('/order/send', isAuthenticated, new SendOrderController().handle)
 router.get('/orders', isAuthenticated, new ListOrdersController().handle)
+router.get('/order/detail', isAuthenticated, new DetailOrderController().handle)
 
 
 export { router };
