@@ -12,6 +12,7 @@ import { CreateOrderController } from "./controllers/order/CreateOrderController
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { AdditemController } from "./controllers/order/AddItemController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
+import { SendOrderController } from "./controllers/order/SendOrderController";
 
 //Import dos middlewares
 import { isAuthenticated } from "./middlewares/isAuthenticated";
@@ -39,6 +40,7 @@ router.post('/order', isAuthenticated, new CreateOrderController().handle)
 router.post('/order/add', isAuthenticated, new AdditemController().handle)
 router.delete('/order', isAuthenticated, new RemoveOrderController().handle)
 router.delete('/order/item', isAuthenticated, new RemoveItemController().handle)
+router.put('/order/send', isAuthenticated, new SendOrderController().handle)
 
 
 export { router };
