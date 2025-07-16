@@ -15,6 +15,7 @@ import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrdersController } from "./controllers/order/ListOrdersController";
 import { DetailOrderController } from "./controllers/order/DetailOrderController";
+import { FinishOrderController } from "./controllers/order/FinishOrderController";
 
 //Import dos middlewares
 import { isAuthenticated } from "./middlewares/isAuthenticated";
@@ -45,6 +46,7 @@ router.delete('/order/item', isAuthenticated, new RemoveItemController().handle)
 router.put('/order/send', isAuthenticated, new SendOrderController().handle)
 router.get('/orders', isAuthenticated, new ListOrdersController().handle)
 router.get('/order/detail', isAuthenticated, new DetailOrderController().handle)
+router.put('/order/finish', isAuthenticated, new FinishOrderController().handle)
 
 
 export { router };
